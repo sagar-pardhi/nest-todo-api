@@ -3,13 +3,15 @@ import { HydratedDocument } from 'mongoose';
 
 export type TodoDocument = HydratedDocument<Todo>;
 
-@Schema()
+@Schema({
+  timestamps: true,
+})
 export class Todo {
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   text: string;
 
-  @Prop({ default: false })
-  isCompleted: boolean;
+  @Prop({ type: Boolean, required: false, default: false })
+  isCompleted?: boolean;
 }
 
 export const TodoSchema = SchemaFactory.createForClass(Todo);
