@@ -8,7 +8,7 @@ export class Todo {
   @Prop({ required: true })
   text: string;
 
-  @Prop()
+  @Prop({ default: false })
   isCompleted: boolean;
 }
 
